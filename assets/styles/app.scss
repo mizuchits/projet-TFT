@@ -1,3 +1,21 @@
 body {
     background-color: skyblue;
 }
+
+.equipe-section {
+        margin: 2rem 0;
+    }
+    .equipe-checkboxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+    }
+    .equipe-checkboxes label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        cursor: pointer;
+    }

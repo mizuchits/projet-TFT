@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TeamController!
+{% endblock %}
+
+{% block body %}
+	{{ form_start(form) }}
+
+	<div class="equipe-section">
+		<h3>Équipe A</h3>
+		{{ form_widget(form.equipeA) }}
+		{{ form_errors(form.equipeA) }}
+	</div>
+
+	<div class="equipe-section">
+		<h3>Équipe B</h3>
+		{{ form_widget(form.equipeB) }}
+		{{ form_errors(form.equipeB) }}
+	</div>
+	<button type="submit" class="btn btn-primary mt-3">Lancer le combat !</button>
+
+	{{ form_end(form) }}
+{% endblock %}

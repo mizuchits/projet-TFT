@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!{% endblock %}
+
+{% block body %}
+<h3>Équipe A</h3>
+	<ul>
+		{% for p in equipeA %}
+			<li>{{ p.name }}
+				- HP:
+				{{ p.hpStat }}
+				{% if not p.estVivant %}
+					(KO)
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+
+	<h3>Équipe B</h3>
+	<ul>
+		{% for p in equipeB %}
+			<li>{{ p.name }}
+				- HP:
+				{{ p.hpStat }}
+				{% if not p.estVivant %}
+					(KO)
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+
+	<ul>
+		{% for log in logs %}
+			<li>{{ log }}</li>
+		{% endfor %}
+	</ul>
+
+	<h2>Vainqueur : {{ vainqueur }}</h2>
+{% endblock %}
