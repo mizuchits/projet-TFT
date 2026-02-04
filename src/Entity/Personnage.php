@@ -19,10 +19,10 @@ class Personnage
     private ?string $name = null;
 
     #[ORM\Column]
-    private ?int $dmg_stat = null;
+    private ?int $damage = null;
 
     #[ORM\Column]
-    private ?int $hp_stat = null;
+    private ?int $hp = null;
 
     /**
      * @var Collection<int, User>
@@ -57,24 +57,24 @@ class Personnage
 
     public function getDmgStat(): ?int
     {
-        return $this->dmg_stat;
+        return $this->damage;
     }
 
-    public function setDmgStat(int $dmg_stat): static
+    public function setDmgStat(int $damage): static
     {
-        $this->dmg_stat = $dmg_stat;
+        $this->damage = $damage;
 
         return $this;
     }
 
     public function getHpStat(): ?int
     {
-        return $this->hp_stat;
+        return $this->hp;
     }
 
-    public function setHpStat(int $hp_stat): static
+    public function setHpStat(int $hp): static
     {
-        $this->hp_stat = $hp_stat;
+        $this->hp = $hp;
 
         return $this;
     }
@@ -116,5 +116,20 @@ class Personnage
         $this->class = $class;
 
         return $this;
+    }
+
+    public function attaquer(Personnage $cible): void
+    {
+        $cible->recevoirDegats($this->damage);
+    }
+
+    public function recevoirDegats(int $degats): void
+    {
+        $this->hp -= $degats;
+    }
+
+    public function estVivant(): bool
+    {
+        return $this->hp > 0;
     }
 }

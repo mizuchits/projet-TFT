@@ -19,7 +19,7 @@ class PersonnageRepository extends ServiceEntityRepository
 //     * @return Personnage[] Returns an array of Personnage objects
 //     */
 
-    public function findPool($value): ?Personnage
+    public function createPool(): ?Personnage
     {
         return $this->createQueryBuilder('p')
             ->orderBy('RAND()')
@@ -28,4 +28,6 @@ class PersonnageRepository extends ServiceEntityRepository
             ->getResult()
        ;
     }
+
 }
+
