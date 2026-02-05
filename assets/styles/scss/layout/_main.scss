@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+// --------------PAGE ACCUEIL-----------------
+
+.bg-accueil{
+    background-image: url(../../../img/bg_noir.jpg);
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding-top: 40px;
+}
+.text-accueil{
+    padding-left: 30px;
+}
+
+.play-accueil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .img-pacman{
+        width: 40%; 
+    }
+}
+.img-pacman img{
+    width: 50%;
+}
+
+// --------------PAGE ACCUEIL-----------------
+
+.bg-game1{
+    background-image: url(../../../img/bg_violet.jpg);
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding-top: 40px;
+}

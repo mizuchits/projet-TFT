@@ -1,10 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!
-{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-	<h1>Combat 2v2</h1>
+
+<section class="bg-accueil">
+    <div class="container">
+        <div>
+            <h1>Plongez dans l'univers fascinant des héros de jeux vidéo rétro</h1>
+        </div>
+        <div class="text-accueil">
+            <p><strong>Pixel Power </strong>c’est du team fight rapide, chaotique et un peu injuste !</p>
+			<p>Ici les teams s’affrontent et les amitiés se brisent ....</p> 
+			<p>Clique sur JOUER </p>
+			<p>Et fais semblant d’avoir tout prévu.</p>
+        </div>
+        <div class="play-accueil">
+            <div class="img-pacman">
+                <img src="{{ asset('../assets/img/pacman.png')}}" alt="Image du perso Pacman">
+            </div>
+            <div>
+                <a class="btn-jouer" href="{{ path("app_game") }}">jouer</a>
+            </div>
+            
+        </div>
+    </div>
+</section>
     
 
     

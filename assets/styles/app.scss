@@ -1,3 +1,8 @@
-body {
-    background-color: skyblue;
-}
+@use"scss/layout/header";
+@use"scss/base/base";
+@use"scss/base/utils";
+@use"scss/base/typo";
+@use"scss/layout/main";
+@use"scss/layout/footer";
+@use"scss/components/btn";
+@use"scss/base/responsive";
