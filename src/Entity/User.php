@@ -39,10 +39,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: personnage::class, inversedBy: 'users')]
     private Collection $personnage;
 
-    public function __construct()
-    {
-        $this->personnage = new ArrayCollection();
-    }
+    #[ORM\Column]
+    private ?bool $IsWaiting = null;
+
+    #[ORM\Column(type: 'json', nullable: true)]
+    private ?array $team = null;
 
     public function getId(): ?int
     {
@@ -114,7 +115,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
+        $data["\0" . self::class . "\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
@@ -148,4 +149,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function isWaiting(): ?bool
+    {
+        return $this->IsWaiting;
+    }
+
+    public function setIsWaiting(bool $IsWaiting): static
+    {
+        $this->IsWaiting = $IsWaiting;
+
+        return $this;
+    }
+
+    public function getTeam(): ?array
+{
+    return $this->team;
+}
+
+public function setTeam(?array $team): self
+{
+    $this->team = $team;
+    return $this;
+}
 }
