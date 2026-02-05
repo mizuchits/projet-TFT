@@ -2,29 +2,31 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Personnage;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\CurrentUser;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 final class GameController extends AbstractController
 {
     #[Route('/game', name: 'app_game')]
-    public function index(SessionInterface $session): Response
+    public function index(SessionInterface $session, #[CurrentUser] ?User $user): Response
 {
-    // $equipeA = $session->get('combat_equipeA', []);
-    // $equipeB = $session->get('combat_equipeB', []);
 
-    // $session->remove('combat_equipeA');
-    // $session->remove('combat_equipeB');
+    $equipeA = $user->getTeam();
+    $equipeB = $session->get('adversaire', []);
 
-    // if (empty($equipeA) || empty($equipeB)) {
-    //     $this->addFlash('error', 'Aucune équipe trouvée. Veuillez recommencer.');
-    //     return $this->redirectToRoute('team_choix'); // ou la route du choix
-    // }
-    // $logs = [];
-    // $tour = 1;
+    $session->remove('adversaire');
+
+    if (empty($equipeA) || empty($equipeB)) {
+        $this->addFlash('error', 'Aucune équipe trouvée. Veuillez recommencer.');
+        return $this->redirectToRoute('app_team');
+    }
+    $logs = [];
+    $tour = 1;
 
     // $logs[] = "Début du combat 2v2 !";
     // $this->logHP($logs, $equipeA, $equipeB);

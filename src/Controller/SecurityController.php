@@ -44,6 +44,7 @@ class SecurityController extends AbstractController
         
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setRoles(['ROLE_USER']);
+            $user->setIsWaiting(false);
             $user->setPassword(
                 $passwordEncoder->hashPassword($user, $form->get('password')->getData())
             );

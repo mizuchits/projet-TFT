@@ -12,12 +12,9 @@
 		{{ form_errors(form.equipeA) }}
 	</div>
 
-	<div class="equipe-section">
-		<h3>Équipe B</h3>
-		{{ form_widget(form.equipeB) }}
-		{{ form_errors(form.equipeB) }}
-	</div>
-	<button type="submit" class="btn btn-primary mt-3">Lancer le combat !</button>
 
-	{{ form_end(form) }}
+	<button type="submit" class="btn btn-primary mt-3">Lancer le combat !</button>
+	{# {% for message in app.flashes.error %}
+		<div class="alert alert-danger">{{ message }}</div>
+	{% endfor %} #}
 {% endblock %}
