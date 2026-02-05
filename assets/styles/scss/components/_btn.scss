@@ -1,0 +1,19 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+// PAGE ACCUEIL
+.btn-jouer{
+    @include mix.button;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #FA00FF;
+}
+
+.btn-jouer:hover{  
+    background-color: white;
+}

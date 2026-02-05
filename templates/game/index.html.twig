@@ -1,39 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GameController!{% endblock %}
+{% block title %}Game{% endblock %}
 
 {% block body %}
-<h3>Équipe A</h3>
-	<ul>
-		{% for p in equipeA %}
-			<li>{{ p.name }}
-				- HP:
-				{{ p.hpStat }}
-				{% if not p.estVivant %}
-					(KO)
-				{% endif %}
-			</li>
-		{% endfor %}
-	</ul>
+<main class="bg-game1">
+	<section class="container">
+	<h2>“Rien n'est vrai. Tout est permis”</h2>
+		<div class="card">
+			<div class="card-perso">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
 
-	<h3>Équipe B</h3>
-	<ul>
-		{% for p in equipeB %}
-			<li>{{ p.name }}
-				- HP:
-				{{ p.hpStat }}
-				{% if not p.estVivant %}
-					(KO)
-				{% endif %}
-			</li>
-		{% endfor %}
-	</ul>
+			<div class="card-perso">
+				<div></div>
+				<div></div>       
+				<div></div>
+			</div>
+		</div>
 
-	<ul>
-		{% for log in logs %}
-			<li>{{ log }}</li>
-		{% endfor %}
-	</ul>
+		{# <div>
+			<h3>Équipe A</h3>
+			<ul>
+				{% for p in equipeA %}
+					<li>{{ p.name }}
+						- HP:
+						{{ p.hpStat }}
+						{% if not p.estVivant %}
+							(KO)
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
 
-	<h2>Vainqueur : {{ vainqueur }}</h2>
+			<h3>Équipe B</h3>
+			<ul>
+				{% for p in equipeB %}
+					<li>{{ p.name }}
+						- HP:
+						{{ p.hpStat }}
+						{% if not p.estVivant %}
+							(KO)
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+
+			<ul>
+				{% for log in logs %}
+					<li>{{ log }}</li>
+				{% endfor %}
+			</ul>
+			<h2>Vainqueur : {{ vainqueur }}</h2>
+		</div> #}
+	</section>
+</main>
 {% endblock %}
