@@ -28,7 +28,6 @@ final class TeamController extends AbstractController
             $data = $form->getData();
 
             $totalA = count($data['equipeA'] ?? []);
-            $totalB = count($data['equipeB'] ?? []);
 
             $erreurs = [];
 
