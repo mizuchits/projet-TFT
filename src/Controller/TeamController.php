@@ -51,13 +51,14 @@ final class TeamController extends AbstractController
 
             $equipeA = $data['equipeA']->toArray();
             $equipeAIds = array_map(fn($perso) => $perso->getId(), $equipeA);
+            $session->set('myteam', $equipeAIds);
             $user->setTeam([
                 'equipeA' => $equipeAIds,
             ]);
-
+            
             $em->flush();
-
             $user->setIsWaiting(true);
+            $em->flush();
 
             return $this->redirectToRoute('app_wait');
         }
