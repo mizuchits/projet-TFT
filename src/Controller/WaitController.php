@@ -22,9 +22,12 @@ final class WaitController extends AbstractController
 
         if ($adversaire) {
             $teamAdversaire = $adversaire->getTeam();
+            $nameAdversaire = $adversaire->getUsername();
 
             if ($teamAdversaire && isset($teamAdversaire['equipeA'])) {
                 $session->set('adversaire', $teamAdversaire['equipeA']);
+                $session->set('adversairename', $nameAdversaire);
+                return $this->redirectToRoute('app_game');
             } else {
                 $adversaire = $this->findOpponent($em);
             }

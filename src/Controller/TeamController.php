@@ -9,9 +9,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\CurrentUser;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
 final class TeamController extends AbstractController
 {
@@ -51,13 +51,14 @@ final class TeamController extends AbstractController
 
             $equipeA = $data['equipeA']->toArray();
             $equipeAIds = array_map(fn($perso) => $perso->getId(), $equipeA);
+            $session->set('myteam', $equipeAIds);
             $user->setTeam([
                 'equipeA' => $equipeAIds,
             ]);
-
+            
             $em->flush();
-
             $user->setIsWaiting(true);
+            $em->flush();
 
             return $this->redirectToRoute('app_wait');
         }
