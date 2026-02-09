@@ -1,2 +1,23 @@
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
+
+// RESPONSIVE TABLETTE
+@media screen and (max-width: 768px){
+    
+    header nav ul{ 
+        display: none;
+    }
+
+    header .menu-burger{
+        display: flex;
+        justify-content: end;
+            .icon-burger{
+                width: 20%;
+                display: block;       
+            }
+        }
+
+    h1{
+        font-size: 2rem;
+    }
+}

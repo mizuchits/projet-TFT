@@ -13,6 +13,7 @@
 }
 .text-accueil{
     padding-left: 30px;
+    text-align: center;
 }
 
 .play-accueil{
@@ -102,14 +103,19 @@
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding-top: 40px;
+    padding-top: 3%;
+    padding-bottom: 10%;
 }
 
 .bg-connexion h2{
     color: #22F93B;
     margin-top: 10%;
-    margin-bottom: 30%;
+    margin-bottom: 10%;
     font-size: 3rem;
+}
+
+.connect{
+    text-align: center;
 }
 
 label{
@@ -118,7 +124,8 @@ label{
 
 .mb-3{
     text-align: center;
-    margin: 20px;    
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .password{
@@ -127,22 +134,49 @@ label{
         margin-bottom: 20px;  
 }
 
-// --------------PAGE S'INSCRIRE-----------------
+// --------------PAGE INSCRIPTION-----------------
 .bg-register{
     background-image: url(../../../img/bg_noir.jpg);
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding-top: 40px;
+    padding-top: 5%;
+    padding-bottom: 10%;
 }
-.form-user h2{
+#register{
     text-align: center;
 }
+.form-user h2{
+    color: #22F93B;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    font-size: 3rem;
+}
+
 .form-user a{
     color: #22F93B; 
     transition: all 0.3s ease;
     // text-decoration: none;
 }
+
 .form-user a:hover{
     color: white;
+}
+
+.form-user p{
+    text-align: center;
+}
+
+.form-user input{
+    margin-top: 20px;
+}
+
+// --------------PAGE WAIT-----------------
+.bg-wait{
+    background-image: url(../../../img/bg_lunebleu.jpg);
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
