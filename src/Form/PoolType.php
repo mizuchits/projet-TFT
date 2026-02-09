@@ -39,7 +39,7 @@ class PoolType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true,
-                'label' => 'Équipe A - Choisissez exactement 2 personnages',
+                'label' => 'Équipe A - Choisissez exactement 3 personnages',
                 'choices'       => $pool,
                 'choice_value'  => 'id',
             ])

@@ -19,9 +19,16 @@
             <div class="img-pacman">
                 <img src="{{ asset('../assets/img/pacman.png')}}" alt="Image du perso Pacman">
             </div>
-            <div>
-                <a class="btn-jouer" href="{{ path("app_team") }}">jouer</a>
-            </div>
+
+            {% if app.user %}
+                <div>
+                    <a class="btn-jouer" href="{{ path("app_team") }}">jouer</a>
+                </div>
+            {% else %}
+                <div>
+                    <a class="btn-jouer" href="{{ path("app_login") }}">se connecter</a>
+                </div>
+            {% endif %}
             
         </div>
     </div>
