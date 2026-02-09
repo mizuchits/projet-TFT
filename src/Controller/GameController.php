@@ -38,7 +38,7 @@ final class GameController extends AbstractController
         $logs = [];
         $tour = 1;
 
-        $logs[] = 'Début du combat 2v2 contre ' . $equipeBname . ' !';
+        $logs[] = 'Début du combat 3v3 contre ' . $equipeBname . ' !';
         $this->logHP($logs, $equipeA, $equipeB);
 
         while ($this->equipeEstVivant($equipeA) && $this->equipeEstVivant($equipeB)) {

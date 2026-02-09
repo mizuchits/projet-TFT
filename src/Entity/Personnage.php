@@ -120,7 +120,8 @@ class Personnage
 
     public function attaquer(Personnage $cible): void
     {
-        $cible->recevoirDegats($this->damage);
+        $damage = $this->damage;
+        $cible->recevoirDegats($damage);
     }
 
     public function recevoirDegats(int $degats): void
@@ -132,4 +133,5 @@ class Personnage
     {
         return $this->hp > 0;
     }
+    
 }
