@@ -1,2 +1,116 @@
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
+
+// RESPONSIVE TABLETTE
+@media screen and (max-width: 768px){
+
+    // Page Accueil
+    header nav ul{ 
+        display: none;
+    }
+    header .menu-burger{
+        display: flex;
+        justify-content: end;
+            .icon-burger{
+                width: 20%;
+                display: block;       
+            }
+    }
+    h1{
+        font-size: 2rem;
+    }
+    .text-accueil p{
+        font-size: 1.8rem;
+    }
+
+    // Page Connexion
+    .bg-connexion h2{
+        font-size: 2rem;
+    }
+
+    // Page Inscription
+    .form-user h2{
+        font-size: 2rem;
+    }
+
+    // Page Team
+    .team-text h2{
+        font-size: 2rem;
+    }
+    .team-text p{
+        font-size: 1.8rem;
+        margin-bottom: 8%;
+    }
+    .remenber{
+        font-size: 1.8rem;
+    }
+    .team-cards{
+        flex-wrap: wrap;
+    }
+
+    // Page Game
+    .fight h2{
+        font-size: 2.5rem;
+    }
+    .perso{
+        width: 40%;
+    }
+    .equipe h3{
+        font-size: 1.8rem;
+    }
+    .win h4{
+        font-size: 1.5rem;
+    }
+}
+
+
+// RESPONSIVE MOBILE
+
+@media screen and (max-width: 576px){
+
+    // Page Accueil
+    header .header-logo{
+        width: 60%;
+    }
+
+    header .header-logo img{
+        width: 40%;
+    }
+
+    header .menu-burger{
+        display: flex;
+        justify-content: end;
+            .icon-burger{
+                width: 25%;
+                display: block;       
+            }
+    }
+
+    .text-accueil p{
+        font-size: 1.5rem;
+    }
+
+    // Page Connexion
+    .form-user p{
+        font-size: 1.3rem;
+    }
+
+    // Page Inscription
+    .card-perso{
+        width: 40%;
+    }
+
+    // Page Game
+    .fight h2{
+        font-size: 2.5rem;
+    }
+    .perso{
+        width: 30%;
+    }
+    .equipe h3{
+        font-size: 1.5rem;
+    }
+    .win h4{
+        font-size: 1.2rem;
+    }
+}
