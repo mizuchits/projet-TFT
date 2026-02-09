@@ -33,6 +33,19 @@
 .btn-lg:hover{  
     background-color: white;
 }
+// PAGE INSCRIPTION
+.btn-register{
+    @include mix.button;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color:#ff1f82;
+    margin-top: 3%;
+}
 
 // PAGE TEAM
 .btn-primary{
