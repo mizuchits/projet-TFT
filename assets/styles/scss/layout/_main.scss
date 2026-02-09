@@ -95,7 +95,7 @@
     justify-content: space-between;
 }
 
-// --------------PAGE GAME-----------------
+// --------------PAGE CONNEXION-----------------
 
 .bg-connexion{
     background-image: url(../../../img/bg_noir.jpg);
@@ -111,6 +111,38 @@
     margin-bottom: 30%;
     font-size: 3rem;
 }
+
 label{
+    color: white;
+}
+
+.mb-3{
+    text-align: center;
+    margin: 20px;    
+}
+
+.password{
+        display: inline-block;
+        margin-top: 20px;
+        margin-bottom: 20px;  
+}
+
+// --------------PAGE S'INSCRIRE-----------------
+.bg-register{
+    background-image: url(../../../img/bg_noir.jpg);
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 40px;
+}
+.form-user h2{
+    text-align: center;
+}
+.form-user a{
+    color: #22F93B; 
+    transition: all 0.3s ease;
+    // text-decoration: none;
+}
+.form-user a:hover{
     color: white;
 }
