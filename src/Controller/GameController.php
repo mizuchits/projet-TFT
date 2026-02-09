@@ -24,6 +24,7 @@ final class GameController extends AbstractController
 
         $session->remove('myteam');
         $session->remove('adversaire');
+        $session->remove('personnages_pool');
         $user->setIsWaiting(false);
         $em->flush();
 
