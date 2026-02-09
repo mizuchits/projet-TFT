@@ -42,11 +42,6 @@ final class WaitController extends AbstractController
         $usersEnAttente = $em->getRepository(User::class)
             ->findBy(['IsWaiting' => true]);
 
-        // if (empty($usersEnAttente)) {
-        //     $usersEnAttente = $em->getRepository(User::class)
-        //         ->findBy(['IsWaiting' => true]);
-        // }
-
         return $usersEnAttente[array_rand($usersEnAttente)];
     }
 
