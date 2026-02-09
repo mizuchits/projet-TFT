@@ -86,8 +86,8 @@ final class GameController extends AbstractController
             $tour++;
         }
 
-        $vainqueur = $this->equipeEstVivant($equipeA) ? 'Équipe A' : 'Équipe B';
-        $logs[] = " Victoire de $vainqueur !";
+    //     $vainqueur = $this->equipeEstVivant($equipeA) ? 'Équipe A' : 'Équipe B';
+    //     $logs[] = " Victoire de $vainqueur !";
         return $this->render('game/index.html.twig', [
             'controller_name' => 'GameController',
             'logs' => $logs ?? [],

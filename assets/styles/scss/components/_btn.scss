@@ -13,7 +13,40 @@
     font-weight: 700;
     background-color: #FA00FF;
 }
-
 .btn-jouer:hover{  
+    background-color: white;
+}
+
+// PAGE CONNEXION
+.btn-lg{
+    @include mix.button;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color:#ff1f82;
+    margin-top: 2%;
+}
+.btn-lg:hover{  
+    background-color: white;
+}
+
+// PAGE TEAM
+.btn-primary{
+    @include mix.button;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color:#ff1f82;
+    margin-bottom: 3%;
+}
+.btn-primary:hover{  
     background-color: white;
 }
