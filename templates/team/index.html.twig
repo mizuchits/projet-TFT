@@ -11,7 +11,9 @@
 			<p>Fais n’importe quoi avec confiance.</p>
 			<p>Explique ensuite que "c’était sratégique".</p>
 		</div>
-		<div class="team-cards">
+
+	{#style avant le formulaire #}
+		{# <div class="team-cards">
 			<div class="card-perso">
 				<div class="card-img">
 					<img src="{{ asset('../assets/img/FinalFantasy.png')}}" alt="Image du perso Pacman">
@@ -51,17 +53,20 @@
 				<h3>nom</h3>
 				<p>role</p>
 				<p>classe</p>
-			</div>		
-		</div>
-		<p class="remenber">Et souviens-toi : ça peut pas être pire !</p>
-	
+			</div>		 #}
+		{# </div> #}
+		
+	{# style avec le formulaire #}
 		{{ form_start(form) }}
-
-		<div class="equipe-section">
-			{# <h3>Équipe A</h3> #}
-			{{ form_widget(form.equipeA) }}
-			{{ form_errors(form.equipeA) }}
-		</div>
+		<div class="team-cards">
+            <div class="card-perso">
+                {% for choice in form.equipeA %}
+                    <img src="{{ asset('../assets/img/' ~ choice.vars.label ~ '.png') }}" alt="{{ choice.vars.label }}">
+                {% endfor %}
+                {{ form_widget(form.equipeA) }}
+            </div>
+		</div>	
+		<p class="remenber">Et souviens-toi : ça peut pas être pire !</p>
 
 		<button type="submit" class="btn btn-primary mt-3">Fight !</button>
 		{# {% for message in app.flashes.error %}
