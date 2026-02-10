@@ -16,11 +16,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 final class TeamController extends AbstractController
 {
     #[Route('/team', name: 'app_team')]
-    public function index(PersonnageRepository $personnage, EntityManagerInterface $em, Request $request, SessionInterface $session, #[CurrentUser] ?User $user): Response
+    public function index(PersonnageRepository $personnagerepo, EntityManagerInterface $em, Request $request, SessionInterface $session, #[CurrentUser] ?User $user): Response
     {
 
         $form = $this->createForm(PoolType::class);
         $form->handleRequest($request);
+
+        $personnage = $personnagerepo->findAll();
 
 
 
@@ -64,6 +66,7 @@ final class TeamController extends AbstractController
         }
         return $this->render('team/index.html.twig', [
             'controller_name' => 'TeamController',
+            'personnage' => $personnage,
             'form' => $form->createView(),
         ]);
     }
