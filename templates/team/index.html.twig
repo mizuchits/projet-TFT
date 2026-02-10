@@ -60,18 +60,13 @@
 
 			<div
 				class="equipe-section">
-				{# <h3>Équipe A</h3> #}
 				{% for choice in form.equipeA %}
 					<img src="{{ asset('../assets/img/' ~ choice.vars.label ~ '.png') }}" alt="{{ choice.vars.label }}">
 				{% endfor %}
 				{{ form_widget(form.equipeA) }}
-				{{ form_errors(form.equipeA) }}
 			</div>
 
 		<button type="submit" class="btn btn-primary mt-3">Fight !</button>
-		{# {% for message in app.flashes.error %}
-			<div class="alert alert-danger">{{ message }}</div>
-		{% endfor %} #}
 	</section>
 </main>
 {% endblock %}
