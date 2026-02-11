@@ -33,6 +33,9 @@ class Personnage
     #[ORM\ManyToOne(inversedBy: 'personnages')]
     private ?Classe $class = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $img = null;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -132,6 +135,18 @@ class Personnage
     public function estVivant(): bool
     {
         return $this->hp > 0;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(string $img): static
+    {
+        $this->img = $img;
+
+        return $this;
     }
     
 }
