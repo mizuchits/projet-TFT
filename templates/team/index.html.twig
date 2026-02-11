@@ -6,32 +6,40 @@
 
 {% block body %}
 
-	<main class="bg-team">
-		<section class="container">
-			<div class="team-text">
-				<h2>ton équipe</h2>
-				<p>Forme une team.</p>
-				<p>Fais n’importe quoi avec confiance.</p>
-				<p>Explique ensuite que "c’était sratégique".</p>
+<main class="bg-team">
+	<section class="container">
+		<div class="team-text">
+			<h2>ton équipe</h2>
+			<p>Forme une team.</p>
+			<p>Fais n’importe quoi avec confiance.</p>
+			<p>Explique ensuite que "c’était sratégique".</p>
+		</div>
+
+	{#style avant le formulaire #}
+		{# <div class="team-cards">
+			<div class="card-perso">
+				<div class="card-img">
+					<img src="{{ asset('../assets/img/FinalFantasy.png')}}" alt="Image du perso Pacman">
+				</div>
+				<h3>nom</h3>
+				<p>role</p>
+				<p>classe</p>
 			</div>
-
-			{{ form_start(form) }}
-				<div class="team-cards"> 
-				{% for choice in form.equipeA %}
-				{% set perso = form.equipeA.vars.choices[choice.vars.value].data %}
-					<div class="card-perso">
-						<img src="{{ asset(perso.img) }}" alt="{{ choice.vars.label }}">
-						{{ form_widget(choice) }}
-						<p>{{ choice.vars.label }}</p>
-					</div>
-				{% endfor %}
+		{# </div> #}
 				
-				
+		  {{ form_start(form) }}
+                <div class="team-cards"> 
+                {% for choice in form.equipeA %}
+                {% set perso = form.equipeA.vars.choices[choice.vars.value].data %}
+                    <div class="card-perso">
+                        <img src="{{ asset(perso.img) }}" alt="{{ choice.vars.label }}">
+                        {{ form_widget(choice) }}
+                    </div>
+                {% endfor %}
+            </div>
+            <p class="remenber">Et souviens-toi : ça peut pas être pire !</p>
 
-			</div>
-			<p class="remenber">Et souviens-toi : ça peut pas être pire !</p>
-
-			<button type="submit" class="btn btn-primary mt-3">Fight !</button>
-		</section>
-	</main>
+            <button type="submit" class="btn btn-primary mt-3">Fight !</button>
+        </section>
+    </main>
 {% endblock %}
