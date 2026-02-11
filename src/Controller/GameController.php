@@ -17,74 +17,74 @@ final class GameController extends AbstractController
     #[Route('/game', name: 'app_game')]
     public function index(EntityManagerInterface $em, SessionInterface $session, PersonnageRepository $repo, #[CurrentUser] ?User $user): Response
     {
-        // $equipeAid = $session->get('myteam', []);
+        $equipeAid = $session->get('myteam', []);
 
-        // $equipeBid = $session->get('adversaire', []);
-        // $equipeBname = $session->get('adversairename', []);
+        $equipeBid = $session->get('adversaire', []);
+        $equipeBname = $session->get('adversairename', []);
 
-        // $session->remove('myteam');
-        // $session->remove('adversaire');
-        // $session->remove('personnages_pool');
-        // $user->setIsWaiting(false);
-        // $em->flush();
+        $session->remove('myteam');
+        $session->remove('adversaire');
+        $session->remove('personnages_pool');
+        $user->setIsWaiting(false);
+        $em->flush();
 
-        // $equipeA = $repo->findBy(['id' => $equipeAid]);
-        // // dd($equipeA);
-        // $equipeB = $repo->findBy(['id' => $equipeBid]);
+        $equipeA = $repo->findBy(['id' => $equipeAid]);
+        // dd($equipeA);
+        $equipeB = $repo->findBy(['id' => $equipeBid]);
 
-        // if (empty($equipeA) || empty($equipeB)) {
-        //     $this->addFlash('error', 'Aucune équipe trouvée. Veuillez recommencer.');
-        //     return $this->redirectToRoute('app_team');
-        // }
-        // $logs = [];
-        // $tour = 1;
+        if (empty($equipeA) || empty($equipeB)) {
+            $this->addFlash('error', 'Aucune équipe trouvée. Veuillez recommencer.');
+            return $this->redirectToRoute('app_team');
+        }
+        $logs = [];
+        $tour = 1;
 
-        // $logs[] = 'Début du combat 3v3 contre ' . $equipeBname . ' !';
-        // $this->logHP($logs, $equipeA, $equipeB);
+        $logs[] = 'Début du combat 3v3 contre ' . $equipeBname . ' !';
+        $this->logHP($logs, $equipeA, $equipeB);
 
-        // while ($this->equipeEstVivant($equipeA) && $this->equipeEstVivant($equipeB)) {
-        //     $logs[] = "──────── Tour $tour ────────";
+        while ($this->equipeEstVivant($equipeA) && $this->equipeEstVivant($equipeB)) {
+            $logs[] = "──────── Tour $tour ────────";
 
-        //     $logs[] = "Équipe A attaque :";
-        //     foreach ($equipeA as $attaquant) {
-        //         if (!$attaquant->estVivant()) {
-        //             continue;
-        //         }
+            $logs[] = "Équipe A attaque :";
+            foreach ($equipeA as $attaquant) {
+                if (!$attaquant->estVivant()) {
+                    continue;
+                }
 
-        //         $cible = $this->choisirCibleVivante($equipeB);
-        //         if (!$cible) {
-        //             break;
-        //         }
+                $cible = $this->choisirCibleVivante($equipeB);
+                if (!$cible) {
+                    break;
+                }
 
-        //         $logs[] = "{$attaquant->getName()} attaque {$cible->getName()}";
-        //         $attaquant->attaquer($cible);
+                $logs[] = "{$attaquant->getName()} attaque {$cible->getName()}";
+                $attaquant->attaquer($cible);
 
-        //         $this->logHP($logs, $equipeA, $equipeB);
-        //     }
+                $this->logHP($logs, $equipeA, $equipeB);
+            }
 
-        //     if (!$this->equipeEstVivant($equipeB)) {
-        //         break;
-        //     }
+            if (!$this->equipeEstVivant($equipeB)) {
+                break;
+            }
 
-        //     $logs[] = "Équipe B contre-attaque :";
-        //     foreach ($equipeB as $attaquant) {
-        //         if (!$attaquant->estVivant()) {
-        //             continue;
-        //         }
+            $logs[] = "Équipe B contre-attaque :";
+            foreach ($equipeB as $attaquant) {
+                if (!$attaquant->estVivant()) {
+                    continue;
+                }
 
-        //         $cible = $this->choisirCibleVivante($equipeA);
-        //         if (!$cible) {
-        //             break;
-        //         }
+                $cible = $this->choisirCibleVivante($equipeA);
+                if (!$cible) {
+                    break;
+                }
 
-        //         $logs[] = "{$attaquant->getName()} attaque {$cible->getName()}";
-        //         $attaquant->attaquer($cible);
+                $logs[] = "{$attaquant->getName()} attaque {$cible->getName()}";
+                $attaquant->attaquer($cible);
 
-        //         $this->logHP($logs, $equipeA, $equipeB);
-        //     }
+                $this->logHP($logs, $equipeA, $equipeB);
+            }
 
-        //     $tour++;
-        // }
+            $tour++;
+        }
 
         $vainqueur = $this->equipeEstVivant($equipeA) ? 'Équipe A' : 'Équipe B';
         $logs[] = " Victoire de $vainqueur !";

@@ -18,6 +18,9 @@ final class TeamController extends AbstractController
     #[Route('/team', name: 'app_team')]
     public function index(PersonnageRepository $personnagerepo, EntityManagerInterface $em, Request $request, SessionInterface $session, #[CurrentUser] ?User $user): Response
     {
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
 
         $form = $this->createForm(PoolType::class);
         $form->handleRequest($request);

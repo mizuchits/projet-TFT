@@ -1,76 +1,71 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Game{% endblock %}
+{% block title %}Game
+{% endblock %}
 
 {% block body %}
-<main class="bg-game1">
-	<section class="container">
-	<div class="fight">
-		<h2>“Rien n'est vrai. Tout est permis”</h2>
-		<div class="teams">
-			<div class="team">
-				<div class="perso">
-					<img src="{{ asset('../assets/img/Sacha.png')}}" alt="Image du perso Pacman">
-				</div>
-				<div class="perso">
-					<img src="{{ asset('../assets/img/Kirby.png')}}" alt="Image du perso Pacman">
-				</div>
-				<div class="perso">
-					<img src="{{ asset('../assets/img/Ryu.png')}}" alt="Image du perso Pacman">
-				</div>
-			</div>
+	<main class="bg-game1">
+		<section class="container">
+			<div class="fight">
+				<h2>“Rien n'est vrai. Tout est permis”</h2>
+				<div class="teams">
+					<div class="team">
+						{% for perso in equipeA %}
+							<div class="perso">
+								<img src="{{ asset('../assets/img/' ~ perso.name ~ '.png') }}" alt="{{ perso.name }}">
+							</div>
+						{% endfor %}
+					</div>
 
-			<div class="team">
-				<div class="perso">
-					<img src="{{ asset('../assets/img/Skeletor.png')}}" alt="Image du perso Pacman">
-				</div>
-				<div class="perso">
-					<img src="{{ asset('../assets/img/Megaman.png')}}" alt="Image du perso Pacman">
-				</div>
-				<div class="perso">
-					<img src="{{ asset('../assets/img/DonkeyKong.png')}}" alt="Image du perso Pacman">
+					<div class="team">
+							{% for perso in equipeB %}
+							<div class="perso">
+								<img src="{{ asset('../assets/img/' ~ perso.name ~ '.png') }}" alt="{{ perso.name }}">
+							</div>
+						{% endfor %}
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-		<div class="equipe">
-			<div>
-			<h3>Équipe A</h3>
-				<ul>
-					{% for p in equipeA %}
-						<li>{{ p.name }}
-							- HP:
-							{{ p.hpStat }}
-							{% if not p.estVivant %}
-								(KO)
-							{% endif %}
-						</li>
-					{% endfor %}
-				</ul>
+			<div class="equipe">
+				<div>
+					<h3>Équipe A</h3>
+					<ul>
+						{% for p in equipeA %}
+							<li>{{ p.name }}
+								- HP:
+								{{ p.hpStat }}
+								{% if not p.estVivant %}
+									(KO)
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div>
+					<h3>Équipe B</h3>
+					<ul>
+						{% for p in equipeB %}
+							<li>{{ p.name }}
+								- HP:
+								{{ p.hpStat }}
+								{% if not p.estVivant %}
+									(KO)
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
 			</div>
-			<div>
-				<h3>Équipe B</h3>
-				<ul>
-					{% for p in equipeB %}
-						<li>{{ p.name }}
-							- HP:
-							{{ p.hpStat }}
-							{% if not p.estVivant %}
-								(KO)
-							{% endif %}
-						</li>
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
 			<ul>
 				{% for log in logs %}
 					<li>{{ log }}</li>
 				{% endfor %}
 			</ul>
-		<div class="win">
-			<h4>La team gagnante est : {{ vainqueur }} !</h4>
-		</div>
-	</section>
-</main>
+			<div class="win">
+				<h4>La team gagnante est :
+					{{ vainqueur }}
+					!</h4>
+			</div>
+		</section>
+	</main>
 {% endblock %}

@@ -43,7 +43,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?bool $IsWaiting = null;
 
     #[ORM\Column(type: 'json', nullable: true)]
-    private ?array $team = null;
+    private ?array $Team = null;
 
     public function getId(): ?int
     {
@@ -164,7 +164,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getTeam(): ?array
 {
-    return $this->team;
+    return $this->Team;
 }
 
 public function setTeam(?array $team): self
