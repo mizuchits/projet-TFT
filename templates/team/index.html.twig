@@ -4,72 +4,75 @@
 {% endblock %}
 
 {% block body %}
-<main class="bg-team">
-	<section class="container">
-		<div class="team-text">
-			<h2>ton équipe</h2>
-			<p>Forme une team.</p>
-			<p>Fais n’importe quoi avec confiance.</p>
-			<p>Explique ensuite que "c’était sratégique".</p>
-		</div>
+	<main class="bg-team">
+		<section class="container">
+			<div class="team-text">
+				<h2>ton équipe</h2>
+				<p>Forme une team.</p>
+				<p>Fais n’importe quoi avec confiance.</p>
+				<p>Explique ensuite que "c’était sratégique".</p>
+			</div>
 
-	{#style avant le formulaire #}
-		{# <div class="team-cards">
-			<div class="card-perso">
-				<div class="card-img">
-					<img src="{{ asset('../assets/img/FinalFantasy.png')}}" alt="Image du perso Pacman">
-				</div>
-				<h3>nom</h3>
-				<p>role</p>
-				<p>classe</p>
-			</div>
-			<div class="card-perso">
-				<div class="card-img">
-					<img src="{{ asset('../assets/img/Kenny.png')}}" alt="Image du perso Pacman">
-				</div>
-				<h3>nom</h3>
-				<p>role</p>
-				<p>classe</p>
-			</div>
-			<div class="card-perso">
-				<div class="card-img">
-					<img src="{{ asset('../assets/img/Doom.png')}}" alt="Image du perso Pacman">
-				</div>
-				<h3>nom</h3>
-				<p>role</p>
-				<p>classe</p>
-			</div>
-			<div class="card-perso">
-				<div class="card-img">
-					<img src="{{ asset('../assets/img/Megaman.png')}}" alt="Image du perso Pacman">
-				</div>
-				<h3>nom</h3>
-				<p>role</p>
-				<p>classe</p>
-			</div>
-			<div class="card-perso">
-				<div class="card-img">
-					<img src="{{ asset('../assets/img/Mario.png')}}" alt="Image du perso Pacman">
-				</div>
-				<h3>nom</h3>
-				<p>role</p>
-				<p>classe</p>
-			</div>		 #}
-		{# </div> #}
-		
-	{# style avec le formulaire #}
-		{{ form_start(form) }}
-		<div class="team-cards">
-            <div class="card-perso">
-                {% for choice in form.equipeA %}
-                    <img src="{{ asset('../assets/img/' ~ choice.vars.label ~ '.png') }}" alt="{{ choice.vars.label }}">
-                {% endfor %}
-                {{ form_widget(form.equipeA) }}
-            </div>
-		</div>	
-		<p class="remenber">Et souviens-toi : ça peut pas être pire !</p>
+			{#style avant le formulaire #}
+			{# <div class="team-cards">
+						<div class="card-perso">
+							<div class="card-img">
+								<img src="{{ asset('../assets/img/FinalFantasy.png')}}" alt="Image du perso Pacman">
+							</div>
+							<h3>nom</h3>
+							<p>role</p>
+							<p>classe</p>
+						</div>
+						<div class="card-perso">
+							<div class="card-img">
+								<img src="{{ asset('../assets/img/Kenny.png')}}" alt="Image du perso Pacman">
+							</div>
+							<h3>nom</h3>
+							<p>role</p>
+							<p>classe</p>
+						</div>
+						<div class="card-perso">
+							<div class="card-img">
+								<img src="{{ asset('../assets/img/Doom.png')}}" alt="Image du perso Pacman">
+							</div>
+							<h3>nom</h3>
+							<p>role</p>
+							<p>classe</p>
+						</div>
+						<div class="card-perso">
+							<div class="card-img">
+								<img src="{{ asset('../assets/img/Megaman.png')}}" alt="Image du perso Pacman">
+							</div>
+							<h3>nom</h3>
+							<p>role</p>
+							<p>classe</p>
+						</div>
+						<div class="card-perso">
+							<div class="card-img">
+								<img src="{{ asset('../assets/img/Mario.png')}}" alt="Image du perso Pacman">
+							</div>
+							<h3>nom</h3>
+							<p>role</p>
+							<p>classe</p>
+						</div>		 #}
+			{# </div> #}
 
-		<button type="submit" class="btn btn-primary mt-3">Fight !</button>
-	</section>
-</main>
+			{# style avec le formulaire #}
+			{{ form_start(form) }}
+				<div class="team-cards"> 
+				{% for choice in form.equipeA %}
+					<div class="card-perso">
+						<img src="{{ asset('../assets/img/' ~ choice.vars.label ~ '.png') }}" alt="{{ choice.vars.label }}">
+						{{ form_widget(choice) }}
+					</div>
+				{% endfor %}
+				
+				
+
+			</div>
+			<p class="remenber">Et souviens-toi : ça peut pas être pire !</p>
+
+			<button type="submit" class="btn btn-primary mt-3">Fight !</button>
+		</section>
+	</main>
 {% endblock %}
