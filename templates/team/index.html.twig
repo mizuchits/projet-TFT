@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Hello TeamController!
 {% endblock %}
 
 {% block body %}
+
 	<main class="bg-team">
 		<section class="container">
 			<div class="team-text">
@@ -13,57 +15,14 @@
 				<p>Explique ensuite que "c’était sratégique".</p>
 			</div>
 
-			{#style avant le formulaire #}
-			{# <div class="team-cards">
-						<div class="card-perso">
-							<div class="card-img">
-								<img src="{{ asset('../assets/img/FinalFantasy.png')}}" alt="Image du perso Pacman">
-							</div>
-							<h3>nom</h3>
-							<p>role</p>
-							<p>classe</p>
-						</div>
-						<div class="card-perso">
-							<div class="card-img">
-								<img src="{{ asset('../assets/img/Kenny.png')}}" alt="Image du perso Pacman">
-							</div>
-							<h3>nom</h3>
-							<p>role</p>
-							<p>classe</p>
-						</div>
-						<div class="card-perso">
-							<div class="card-img">
-								<img src="{{ asset('../assets/img/Doom.png')}}" alt="Image du perso Pacman">
-							</div>
-							<h3>nom</h3>
-							<p>role</p>
-							<p>classe</p>
-						</div>
-						<div class="card-perso">
-							<div class="card-img">
-								<img src="{{ asset('../assets/img/Megaman.png')}}" alt="Image du perso Pacman">
-							</div>
-							<h3>nom</h3>
-							<p>role</p>
-							<p>classe</p>
-						</div>
-						<div class="card-perso">
-							<div class="card-img">
-								<img src="{{ asset('../assets/img/Mario.png')}}" alt="Image du perso Pacman">
-							</div>
-							<h3>nom</h3>
-							<p>role</p>
-							<p>classe</p>
-						</div>		 #}
-			{# </div> #}
-
-			{# style avec le formulaire #}
 			{{ form_start(form) }}
 				<div class="team-cards"> 
 				{% for choice in form.equipeA %}
+				{% set perso = form.equipeA.vars.choices[choice.vars.value].data %}
 					<div class="card-perso">
-						<img src="{{ asset('../assets/img/' ~ choice.vars.label ~ '.png') }}" alt="{{ choice.vars.label }}">
+						<img src="{{ asset(perso.img) }}" alt="{{ choice.vars.label }}">
 						{{ form_widget(choice) }}
+						<p>{{ choice.vars.label }}</p>
 					</div>
 				{% endfor %}
 				
