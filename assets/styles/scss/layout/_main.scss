@@ -125,18 +125,22 @@
 }
 .log{
     color: white;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     border: 3px solid #00b6ff;
     background-color: #5f0078;
+    scroll-behavior: auto;
+    overflow-y: scroll;
+    max-height: 40vh;
+    margin-top: 2%;
 }
 .equipe li{
     color: white;
 }
 .log li{
-    font-size: 0.8rem;
+    font-size: 1rem;
     list-style: none;
 }
 .equipe h3{
@@ -148,7 +152,8 @@
     text-transform: uppercase;
     text-align: center;
     margin: 0;
-    margin-top: 3%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 // --------------PAGE CONNEXION-----------------
@@ -165,10 +170,17 @@
 .bg-connexion h2{
     color: #22F93B;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     font-size: 3rem;
 }
-
+// Message d'alerte
+.alert-success{
+    color: #ff1f82;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    font-weight: 700;
+}
 .connect{
     text-align: center;
 }

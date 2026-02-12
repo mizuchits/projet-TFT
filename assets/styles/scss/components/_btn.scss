@@ -11,7 +11,7 @@
     margin: auto;
     text-transform: uppercase;
     font-weight: 700;
-    background-color: #FA00FF;
+    background-color: #ff1f82;
 }
 .btn-jouer:hover{  
     background-color: white;
@@ -64,5 +64,23 @@
     margin-bottom: 3%;
 }
 .btn-primary:hover{  
+    background-color: white;
+}
+
+// PAGE GAME
+.btn-rejouer{
+    @include mix.button;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin:  0 auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #ff1f82;
+    margin-top: 3%;
+    justify-self: center;
+}
+.btn-rejouer:hover{  
     background-color: white;
 }

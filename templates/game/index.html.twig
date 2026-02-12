@@ -25,9 +25,12 @@
 					</div>
 				</div>
 			</div>
+			<div class="win">
+				<h4>La team gagnante est : L'{{ vainqueur }} !</h4>
+			</div>
 			<div class="equipe">
 				<div>
-					<h3>Équipe A</h3>
+					<h3>Équipe ALPHA PING</h3>
 					<ul>
 						{% for p in equipeA %}
 							<li>{{ p.name }}
@@ -41,7 +44,7 @@
 					</ul>
 				</div>
 				<div>
-					<h3>Équipe B</h3>
+					<h3>Équipe BETA LAG</h3>
 					<ul>
 						{% for p in equipeB %}
 							<li>{{ p.name }}
@@ -60,11 +63,7 @@
 					<li>{{ log }}</li>
 				{% endfor %}
 			</ul>
-			<div class="win">
-				<h4>La team gagnante est :
-					{{ vainqueur }}
-					!</h4>
-			</div>
+			<a class="btn-rejouer" href="{{ path("app_team") }}">Rejouer</a>
 		</section>
 	</main>
 {% endblock %}
