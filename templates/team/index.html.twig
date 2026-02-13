@@ -31,11 +31,21 @@
                 {% set perso = form.equipeA.vars.choices[choice.vars.value].data %}
                     <div class="card-perso">
                         <img src="{{ asset(perso.img) }}" alt="{{ choice.vars.label }}">
-                        {{ form_widget(choice) }}
-						<h5></h5>
-						<p></p>
+						<h5>{{perso.name}}</h5>
+						<p>{{perso.class.name}}</p>
+						 {# {% for classe in perso.class %}
+						 {{ dump(classe) }}
+						 {% endfor %} #}
+						{# <pre>
+							{{ dump(perso.class) }}
+						</pre> #}
+						<div class="checkbox">
+							{{ form_widget(choice) }}
+						</div>
                     </div>
                 {% endfor %}
+				
+			{# {{ form_end(form) }}	 #}
             </div>
             <p class="remenber">Et souviens-toi : ça peut pas être pire !</p>
 
