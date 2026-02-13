@@ -20,13 +20,20 @@ h2{
     text-transform: uppercase;
     text-align: center;
 }
+
 h3{
+    font-size: 2.3rem;
+    font-weight: 800;
+}
+
+h4{
     font-size: 2rem;
     font-weight: 800;
 }
-h4{
-    font-size: 2.3rem;
-    font-weight: 800;
+
+h5{
+    font-size: 1.3rem;
+    text-transform: uppercase;
 }
 
 p{
@@ -37,4 +44,5 @@ p{
 strong{
     font-weight: 700;
     font-size: 2rem;
+    text-transform: uppercase;
 }

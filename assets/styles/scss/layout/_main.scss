@@ -55,8 +55,10 @@
     text-align: center;
     padding: 20px 10px;
     width: 30%;
+    max-width: 20vh;
     transition: all 0.3s ease;
     border-radius: 5px;
+    height: 45vh;
 }
 .card-perso:hover{
     background-color: #22F93B;
@@ -64,9 +66,10 @@
 }
 .card-perso p{
     color: black;
+    font-size: 1.5rem;
 }
 .card-img{
-    width: 80%;
+    width: 70%;
     justify-self: center;
 }
 .card-perso img{
@@ -143,11 +146,11 @@
     font-size: 1rem;
     list-style: none;
 }
-.equipe h3{
+.equipe h4{
     color:white;
     margin: 5px;
 }
-.win h4{
+.win h3{
     color:#22F93B;
     text-transform: uppercase;
     text-align: center;
