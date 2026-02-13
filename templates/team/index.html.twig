@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Hello TeamController!
 {% endblock %}
 
 {% block body %}
+
 <main class="bg-team">
 	<section class="container">
 		<div class="team-text">
@@ -31,6 +33,8 @@
                 {% set perso = form.equipeA.vars.choices[choice.vars.value].data %}
                     <div class="card-perso">
                         <img src="{{ asset(perso.img) }}" alt="{{ choice.vars.label }}">
+						<p>{{perso.name}}</p>
+						
                         {{ form_widget(choice) }}
                     </div>
                 {% endfor %}
