@@ -12,14 +12,14 @@
 					<div class="team">
 						{% for perso in equipeA %}
 							<div class="perso">
-								<img src="{{ asset('../assets/img/' ~ perso.name ~ '.png') }}" alt="{{ perso.name }}">
+								<img src="{{ asset(perso.img) }}" alt="{{ perso.name}}">
 							</div>
 						{% endfor %}
 					</div>
 					<div class="team">
 							{% for perso in equipeB %}
 							<div class="perso">
-								<img src="{{ asset('../assets/img/' ~ perso.name ~ '.png') }}" alt="{{ perso.name }}">
+								<img src="{{ asset(perso.img) }}" alt="{{ perso.name}}">
 							</div>
 						{% endfor %}
 					</div>
