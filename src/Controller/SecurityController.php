@@ -50,7 +50,7 @@ class SecurityController extends AbstractController
             );
             $entityManager->persist($user);
             $entityManager->flush();
-            
+            $this->addFlash('success',' Félicitations ! Vous êtes inscrits. Les décisions discutables commencent ici !');
             return $this->redirectToRoute('app_login');
         }
         
